@@ -1,1 +1,219 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>MTB Althofen Shop</title></head><body><h1>MTB Althofen Shop</h1><p>Die vollständige Website wurde erstellt.</p></body></html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MTB Althofen Shop</title>
+<style>
+body{margin:0;font-family:Arial;background:#0b0d10;color:#fff}
+header{background:#000;padding:15px;display:flex;align-items:center;gap:15px;position:sticky;top:0;z-index:100}
+header img{width:70px;border-radius:10px}
+.hero{padding:60px 20px;text-align:center;background:linear-gradient(135deg,#111,#222)}
+.hero h1{font-size:55px;margin:0}
+.hero p{font-size:22px;color:#ddd}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;padding:40px;background:#f4f4f4}
+.card{background:#fff;color:#111;border-radius:16px;padding:18px;box-shadow:0 8px 20px rgba(0,0,0,0.2)}
+.card img{width:100%;height:320px;object-fit:contain;border-radius:10px}
+h3{text-align:center;font-size:30px}
+.price{text-align:center;font-size:22px}
+select,input,textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #ccc;margin-top:8px;margin-bottom:15px;font-size:16px}
+button{width:100%;padding:14px;border:none;border-radius:10px;background:#000;color:#fff;font-weight:bold;font-size:17px;cursor:pointer}
+.cart,.form{padding:40px 20px}
+.hidden{display:none}
+.cart-item{padding:12px 0;border-bottom:1px solid #444}
+.form-box{max-width:900px;margin:auto;background:#fff;color:#111;padding:25px;border-radius:16px}
+.checks{margin-top:20px}
+.checks label{display:flex;align-items:flex-start;gap:10px;margin-bottom:15px;font-size:15px}
+.checks input{width:auto;margin-top:3px}
+@media(max-width:700px){
+.hero h1{font-size:38px}
+.hero p{font-size:18px}
+.products{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<img src="logo.jpg">
+<div>
+<h2>MTB ALTHOFEN</h2>
+<p>Vereinskleidung bestellen</p>
+</div>
+</header>
+
+<section class="hero">
+<h1>VEREINSKLEIDUNG BESTELLEN</h1>
+<p>Produkte auswählen → Warenkorb → Formular</p>
+</section>
+
+<section class="products">
+
+<div class="card">
+<img src="tshirt.jpg">
+<h3>T-Shirt</h3>
+<p class="price">20 €</p>
+
+<label>Farbe</label>
+<select id="shirtColor">
+<option>Schwarz</option>
+<option>Weiß</option>
+</select>
+
+<label>Größe</label>
+<select id="shirtSize">
+<option>98</option><option>104</option><option>110</option><option>116</option>
+<option>122</option><option>128</option><option>134</option><option>140</option>
+<option>146</option><option>152</option><option>158</option><option>164</option>
+<option>XS</option><option>S</option><option>M</option><option>L</option>
+<option>XL</option><option>XXL</option>
+</select>
+
+<label>Stückzahl</label>
+<select id="shirtQty">
+<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+</select>
+
+<button onclick="addShirt()">In den Warenkorb</button>
+</div>
+
+<div class="card">
+<img src="hoodie.jpg">
+<h3>Hoodie</h3>
+<p class="price">35 €</p>
+
+<label>Farbe</label>
+<select id="hoodieColor">
+<option>Schwarz</option>
+<option>Weiß</option>
+</select>
+
+<label>Größe</label>
+<select id="hoodieSize">
+<option>98</option><option>104</option><option>110</option><option>116</option>
+<option>122</option><option>128</option><option>134</option><option>140</option>
+<option>146</option><option>152</option><option>158</option><option>164</option>
+<option>XS</option><option>S</option><option>M</option><option>L</option>
+<option>XL</option><option>XXL</option>
+</select>
+
+<label>Stückzahl</label>
+<select id="hoodieQty">
+<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+</select>
+
+<button onclick="addHoodie()">In den Warenkorb</button>
+</div>
+
+<div class="card">
+<img src="cap.jpg">
+<h3>Cap Schwarz</h3>
+<p class="price">15 €</p>
+
+<label>Stückzahl</label>
+<select id="capQty">
+<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+</select>
+
+<button onclick="addCap()">In den Warenkorb</button>
+</div>
+
+</section>
+
+<section class="cart">
+<h2 style="text-align:center">Warenkorb</h2>
+<div id="cart"></div>
+<h3 id="total">Gesamt: 0 €</h3>
+<button onclick="showForm()">Weiter zum Formular</button>
+</section>
+
+<section class="form hidden" id="form">
+<div class="form-box">
+<form action="https://formsubmit.co/DEINE-MAIL@EMAIL.DE" method="POST">
+
+<input type="hidden" id="order" name="Bestellung">
+
+<input type="text" name="Name" placeholder="Vor- und Nachname" required>
+<input type="text" name="Adresse" placeholder="Adresse" required>
+<input type="tel" name="Telefon" placeholder="Telefonnummer" required>
+<input type="email" name="Email" placeholder="E-Mail" required>
+
+<textarea name="Anmerkung" placeholder="Anmerkungen"></textarea>
+
+<div class="checks">
+
+<label>
+<input type="checkbox" required>
+<span>Ich akzeptiere die Verarbeitung meiner Daten zur Bearbeitung der Bestellung.</span>
+</label>
+
+<label>
+<input type="checkbox" required>
+<span>Ich bestätige, dass die Bestellung verbindlich ist.</span>
+</label>
+
+<label>
+<input type="checkbox" required>
+<span>Ich habe die Größen und Stückzahlen überprüft.</span>
+</label>
+
+</div>
+
+<button type="submit" onclick="prepare()">Bestellung absenden</button>
+
+</form>
+</div>
+</section>
+
+<script>
+let items=[];
+
+function addShirt(){
+let color=document.getElementById('shirtColor').value;
+let size=document.getElementById('shirtSize').value;
+let qty=document.getElementById('shirtQty').value;
+items.push({name:'T-Shirt '+color,size,qty,price:20});
+render();
+}
+
+function addHoodie(){
+let color=document.getElementById('hoodieColor').value;
+let size=document.getElementById('hoodieSize').value;
+let qty=document.getElementById('hoodieQty').value;
+items.push({name:'Hoodie '+color,size,qty,price:35});
+render();
+}
+
+function addCap(){
+let qty=document.getElementById('capQty').value;
+items.push({name:'Cap Schwarz',size:'Einheitsgröße',qty,price:15});
+render();
+}
+
+function render(){
+let c=document.getElementById('cart');
+let total=0;
+c.innerHTML='';
+items.forEach(i=>{
+total+=i.price*i.qty;
+c.innerHTML+=`<div class='cart-item'><b>${i.name}</b><br>Größe: ${i.size} | Stück: ${i.qty}</div>`;
+});
+document.getElementById('total').innerText='Gesamt: '+total+' €';
+}
+
+function showForm(){
+if(items.length===0){
+alert('Bitte zuerst Produkte auswählen');
+return;
+}
+document.getElementById('form').classList.remove('hidden');
+window.scrollTo(0,document.body.scrollHeight);
+}
+
+function prepare(){
+document.getElementById('order').value=JSON.stringify(items);
+}
+</script>
+
+</body>
+</html>
