@@ -22,6 +22,7 @@ gap:15px;
 position:sticky;
 top:0;
 z-index:100;
+box-shadow:0 2px 12px rgba(0,0,0,0.4);
 }
 
 header img{
@@ -43,6 +44,33 @@ margin:0;
 .hero p{
 font-size:20px;
 color:#ddd;
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+padding:25px;
+background:#111;
+}
+
+.step{
+background:#1c1f24;
+padding:18px;
+border-radius:14px;
+text-align:center;
+border:1px solid #333;
+}
+
+.notice{
+background:#fff3cd;
+color:#222;
+padding:18px;
+margin:25px auto;
+max-width:1000px;
+border-radius:14px;
+font-size:17px;
+line-height:1.5;
 }
 
 .products{
@@ -86,6 +114,7 @@ margin-bottom:15px;
 border-radius:8px;
 border:1px solid #ccc;
 font-size:16px;
+box-sizing:border-box;
 }
 
 button{
@@ -98,6 +127,10 @@ color:white;
 font-weight:bold;
 font-size:17px;
 cursor:pointer;
+}
+
+button:hover{
+background:#222;
 }
 
 .cart,.form{
@@ -122,6 +155,28 @@ padding:25px;
 border-radius:16px;
 }
 
+.radio-box{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-bottom:20px;
+}
+
+.radio-box label{
+border:1px solid #ccc;
+border-radius:12px;
+padding:14px;
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+}
+
+.radio-box input{
+width:auto;
+margin:0;
+}
+
 .checks label{
 display:flex;
 gap:10px;
@@ -131,6 +186,14 @@ font-size:15px;
 
 .checks input{
 width:auto;
+}
+
+.footer{
+background:#050505;
+color:#bbb;
+padding:30px 20px;
+text-align:center;
+font-size:14px;
 }
 
 @media(max-width:700px){
@@ -147,6 +210,10 @@ font-size:18px;
 padding:20px;
 }
 
+.radio-box{
+grid-template-columns:1fr;
+}
+
 }
 </style>
 </head>
@@ -154,7 +221,7 @@ padding:20px;
 <body>
 
 <header>
-<img src="logo.jpg">
+<img src="logo.jpg" alt="MTB Althofen Logo">
 <div>
 <h2>MTB ALTHOFEN</h2>
 <p>Vereinskleidung bestellen</p>
@@ -163,13 +230,24 @@ padding:20px;
 
 <section class="hero">
 <h1>VEREINSKLEIDUNG BESTELLEN</h1>
-<p>Produkte auswählen → Warenkorb → Formular</p>
+<p>Produkte auswählen → Warenkorb prüfen → Bestellung absenden</p>
 </section>
+
+<section class="steps">
+<div class="step"><b>1. Produkte wählen</b><br>Farbe, Größe und Stückzahl auswählen.</div>
+<div class="step"><b>2. Warenkorb prüfen</b><br>Kontrolliere deine Bestellung vor dem Absenden.</div>
+<div class="step"><b>3. Bestellung absenden</b><br>Wir melden uns, sobald die Kleidung angekommen ist.</div>
+</section>
+
+<div class="notice">
+<b>Hinweis zur Sammelbestellung:</b><br>
+Die Bestellungen werden gesammelt und anschließend gemeinsam aufgegeben. Deshalb kann die Bearbeitung und Lieferung etwas dauern. Sobald deine Vereinskleidung angekommen ist, wirst du von uns kontaktiert.
+</div>
 
 <section class="products">
 
 <div class="card">
-<img src="tshirt.jpg">
+<img src="tshirt.jpg" alt="T-Shirt">
 
 <h3>T-Shirt</h3>
 <p class="price">20 €</p>
@@ -182,40 +260,23 @@ padding:20px;
 
 <label>Größe</label>
 <select id="shirtSize">
-<option>98</option>
-<option>104</option>
-<option>110</option>
-<option>116</option>
-<option>122</option>
-<option>128</option>
-<option>134</option>
-<option>140</option>
-<option>146</option>
-<option>152</option>
-<option>158</option>
-<option>164</option>
-<option>XS</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-<option>XXL</option>
+<option>98</option><option>104</option><option>110</option><option>116</option>
+<option>122</option><option>128</option><option>134</option><option>140</option>
+<option>146</option><option>152</option><option>158</option><option>164</option>
+<option>XS</option><option>S</option><option>M</option><option>L</option>
+<option>XL</option><option>XXL</option>
 </select>
 
 <label>Stückzahl</label>
 <select id="shirtQty">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
 </select>
 
 <button onclick="addShirt()">In den Warenkorb</button>
 </div>
 
 <div class="card">
-<img src="hoodie.jpg">
+<img src="hoodie.jpg" alt="Hoodie">
 
 <h3>Hoodie</h3>
 <p class="price">35 €</p>
@@ -228,51 +289,30 @@ padding:20px;
 
 <label>Größe</label>
 <select id="hoodieSize">
-<option>98</option>
-<option>104</option>
-<option>110</option>
-<option>116</option>
-<option>122</option>
-<option>128</option>
-<option>134</option>
-<option>140</option>
-<option>146</option>
-<option>152</option>
-<option>158</option>
-<option>164</option>
-<option>XS</option>
-<option>S</option>
-<option>M</option>
-<option>L</option>
-<option>XL</option>
-<option>XXL</option>
+<option>98</option><option>104</option><option>110</option><option>116</option>
+<option>122</option><option>128</option><option>134</option><option>140</option>
+<option>146</option><option>152</option><option>158</option><option>164</option>
+<option>XS</option><option>S</option><option>M</option><option>L</option>
+<option>XL</option><option>XXL</option>
 </select>
 
 <label>Stückzahl</label>
 <select id="hoodieQty">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
 </select>
 
 <button onclick="addHoodie()">In den Warenkorb</button>
 </div>
 
 <div class="card">
-<img src="cap.jpg">
+<img src="cap.jpg" alt="Cap Schwarz">
 
 <h3>Cap Schwarz</h3>
 <p class="price">15 €</p>
 
 <label>Stückzahl</label>
 <select id="capQty">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
 </select>
 
 <button onclick="addCap()">In den Warenkorb</button>
@@ -296,21 +336,38 @@ padding:20px;
 
 <div class="form-box">
 
+<h2>Bestelldaten</h2>
+
 <form action="https://api.web3forms.com/submit" method="POST">
 
 <input type="hidden" name="access_key" value="9ed788ac-8ae7-47f6-8f7d-23fdbe53174f">
-
+<input type="hidden" name="subject" value="Neue Vereinskleidung-Bestellung MTB Althofen">
 <input type="hidden" id="order" name="Bestellung">
+<input type="hidden" id="totalOrder" name="Gesamtbetrag">
 
+<label>Name</label>
 <input type="text" name="Name" placeholder="Vor- und Nachname" required>
 
-<input type="text" name="Adresse" placeholder="Adresse" required>
+<label>Adresse</label>
+<input type="text" name="Adresse" placeholder="Straße, Hausnummer, PLZ, Ort" required>
 
+<label>Telefonnummer</label>
 <input type="tel" name="Telefon" placeholder="Telefonnummer" required>
 
+<label>E-Mail</label>
 <input type="email" name="Email" placeholder="E-Mail" required>
 
-<textarea name="Anmerkung" placeholder="Anmerkungen"></textarea>
+<label>Übergabe der Bestellung</label>
+<div class="radio-box">
+<label><input type="radio" name="Übergabe" value="Selbstabholung" required> Selbstabholung</label>
+<label><input type="radio" name="Übergabe" value="Zusendung" required> Zusendung</label>
+</div>
+
+<textarea name="Anmerkung" placeholder="Anmerkungen, Wünsche oder Hinweise"></textarea>
+
+<div class="notice" style="margin:20px 0;">
+<b>Info:</b> Du wirst kontaktiert, sobald die Bestellung angekommen ist. Die Übergabe erfolgt je nach Auswahl per Selbstabholung oder Zusendung.
+</div>
 
 <div class="checks">
 
@@ -326,7 +383,12 @@ padding:20px;
 
 <label>
 <input type="checkbox" required>
-<span>Ich habe die Größen und Stückzahlen überprüft.</span>
+<span>Ich habe die Größen, Farben und Stückzahlen überprüft.</span>
+</label>
+
+<label>
+<input type="checkbox" required>
+<span>Mir ist bewusst, dass es sich um eine Sammelbestellung handelt und die Lieferung etwas dauern kann.</span>
 </label>
 
 </div>
@@ -338,6 +400,11 @@ padding:20px;
 </div>
 
 </section>
+
+<footer class="footer">
+MTB Althofen – Vereinskleidung<br>
+Bei Fragen zur Bestellung bitte an den Vereinsverantwortlichen wenden.
+</footer>
 
 <script>
 
@@ -395,19 +462,18 @@ render();
 function render(){
 
 let c=document.getElementById('cart');
-
 let total=0;
-
 c.innerHTML='';
 
-items.forEach(i=>{
+items.forEach((i,index)=>{
 
 total+=i.price*i.qty;
 
 c.innerHTML+=`
 <div class='cart-item'>
 <b>${i.name}</b><br>
-Größe: ${i.size} | Stück: ${i.qty}
+Größe: ${i.size} | Stück: ${i.qty} | Preis: ${i.price * i.qty} €
+<br><button style="margin-top:8px;max-width:160px;padding:8px;font-size:14px;" onclick="removeItem(${index})">Entfernen</button>
 </div>
 `;
 
@@ -417,17 +483,19 @@ document.getElementById('total').innerText='Gesamt: '+total+' €';
 
 }
 
+function removeItem(index){
+items.splice(index,1);
+render();
+}
+
 function showForm(){
 
 if(items.length===0){
-
 alert('Bitte zuerst Produkte auswählen');
 return;
-
 }
 
 document.getElementById('form').classList.remove('hidden');
-
 window.scrollTo(0,document.body.scrollHeight);
 
 }
@@ -435,18 +503,23 @@ window.scrollTo(0,document.body.scrollHeight);
 function prepare(){
 
 let text = "";
+let total = 0;
 
 items.forEach(i => {
+
+let sum = i.price * i.qty;
+total += sum;
 
 text +=
 "Produkt: " + i.name + "\n" +
 "Größe: " + i.size + "\n" +
 "Stückzahl: " + i.qty + "\n" +
-"Preis: " + (i.price * i.qty) + " €\n\n";
+"Preis: " + sum + " €\n\n";
 
 });
 
 document.getElementById('order').value = text;
+document.getElementById('totalOrder').value = total + " €";
 
 }
 
