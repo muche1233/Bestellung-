@@ -4,242 +4,118 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MTB Althofen Shop</title>
-
 <style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#0b0d10;
-color:white;
-}
-
-header{
-background:#000;
-padding:25px 15px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 2px 12px rgba(0,0,0,0.4);
-}
-  
-header img{
-width:300px;
-border-radius:50px;
-margin-bottom:30px;
-}
-
-.hero{
-padding:60px 20px;
-text-align:center;
-background:linear-gradient(135deg,#111,#222);
-}
-
-.hero h1{
-font-size:50px;
-margin:0;
-}
-
-.hero p{
-font-size:20px;
-color:#ddd;
-}
-
-.steps{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-padding:25px;
-background:#111;
-}
-
-.step{
-background:#1c1f24;
-padding:18px;
-border-radius:14px;
-text-align:center;
-border:1px solid #333;
-}
-
-.notice{
-background:#fff3cd;
-color:#222;
-padding:18px;
-margin:25px auto;
-max-width:1000px;
-border-radius:14px;
-font-size:17px;
-line-height:1.5;
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-padding:30px;
-background:#f4f4f4;
-}
-
-.card{
-background:white;
-color:black;
-border-radius:16px;
-padding:18px;
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
-}
-
-.card img{
-width:100%;
-height:320px;
-object-fit:contain;
-border-radius:10px;
-}
-
-.card h3{
-text-align:center;
-font-size:30px;
-}
-
-.price{
-text-align:center;
-font-size:22px;
-}
-
-select,input,textarea{
-width:100%;
-padding:12px;
-margin-top:8px;
-margin-bottom:15px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:16px;
-box-sizing:border-box;
-}
-
-button{
-width:100%;
-padding:14px;
-border:none;
-border-radius:10px;
-background:black;
-color:white;
-font-weight:bold;
-font-size:17px;
-cursor:pointer;
-}
-
-button:hover{
-background:#222;
-}
-
-.cart,.form{
-padding:40px 20px;
-}
-
-.cart-item{
-padding:12px 0;
-border-bottom:1px solid #444;
-}
-
-.hidden{
-display:none;
-}
-
-.form-box{
-max-width:900px;
-margin:auto;
-background:white;
-color:black;
-padding:25px;
-border-radius:16px;
-}
-
-.radio-box{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-margin-bottom:20px;
-}
-
-.radio-box label{
-border:1px solid #ccc;
-border-radius:12px;
-padding:14px;
-display:flex;
-align-items:center;
-gap:10px;
-cursor:pointer;
-}
-
-.radio-box input{
-width:auto;
-margin:0;
-}
-
-.checks label{
-display:flex;
-gap:10px;
-margin-bottom:15px;
-font-size:15px;
-}
-
-.checks input{
-width:auto;
-}
-
-.footer{
-background:#050505;
-color:#bbb;
-padding:30px 20px;
-text-align:center;
-font-size:14px;
-}
-
-@media(max-width:700px){
-
-.hero h1{
-font-size:38px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-.products{
-padding:20px;
-}
-
-.radio-box{
-grid-template-columns:1fr;
-}
-
+:root{--bg:#0b0d10;--accent:#f4c430;--dark:#111318;--card:#fff;--border:#2b2f36}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:white}
+a{color:inherit;text-decoration:none}
+.topbar{background:#050505;border-bottom:1px solid #222;position:sticky;top:0;z-index:200}
+.topbar-inner{max-width:1200px;margin:auto;padding:12px 18px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:15px}
+.nav-left{display:flex;gap:12px;align-items:center;font-size:14px;color:#ddd}
+.logo-wrap{text-align:center}
+.logo-wrap img{width:210px;max-width:45vw;border-radius:28px;display:block;margin:auto}
+.logo-wrap h1{font-size:22px;margin:8px 0 0;letter-spacing:2px}
+.logo-wrap p{margin:3px 0 0;font-size:14px;color:#ccc}
+.shop-actions{display:flex;justify-content:flex-end;align-items:center;gap:12px}
+.icon-btn{background:#16191f;color:white;border:1px solid #333;border-radius:999px;padding:10px 14px;font-weight:bold;cursor:pointer;display:flex;align-items:center;gap:8px;width:auto}
+.cart-btn{position:relative;background:var(--accent);color:#111;border:none}
+.cart-count{position:absolute;top:-8px;right:-8px;background:#e60023;color:#fff;border-radius:999px;font-size:12px;min-width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:bold}
+.hero{padding:70px 20px;text-align:center;background:radial-gradient(circle at 50% 15%,rgba(255,255,255,.18),transparent 22%),linear-gradient(135deg,#111,#24272e 55%,#070707)}
+.hero-logo{width:340px;max-width:80vw;border-radius:38px;margin:0 auto 25px;box-shadow:0 20px 45px rgba(0,0,0,.55)}
+.hero h2{font-size:56px;margin:0;text-transform:uppercase;letter-spacing:2px}
+.hero p{font-size:21px;color:#ddd;max-width:720px;margin:15px auto 0;line-height:1.5}
+.hero-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-buttons button{width:auto;padding:14px 22px;border-radius:999px}
+.btn-accent{background:var(--accent);color:#111}
+.btn-dark{background:#000;color:white;border:1px solid #444}
+.trust-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;padding:22px;background:#0f1115;max-width:1200px;margin:0 auto}
+.trust-card{background:#181b21;border:1px solid #2a2e36;border-radius:16px;padding:18px;text-align:center;color:#eee}
+.trust-card span{display:block;font-size:30px;margin-bottom:8px}
+.notice{background:#fff3cd;color:#222;padding:18px;margin:25px auto;max-width:1100px;border-radius:16px;font-size:17px;line-height:1.5;box-shadow:0 8px 22px rgba(0,0,0,.15)}
+.section-title{text-align:center;font-size:42px;margin:0 0 25px;color:#111}
+.products-section{background:#f4f4f4;padding:45px 20px}
+.products{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.card{background:white;color:black;border-radius:20px;padding:18px;box-shadow:0 10px 25px rgba(0,0,0,.2);position:relative;overflow:hidden}
+.badge{position:absolute;top:14px;left:14px;background:#000;color:#fff;padding:7px 11px;border-radius:999px;font-size:13px;font-weight:bold}
+.card img{width:100%;height:320px;object-fit:contain;border-radius:12px;background:#fafafa}
+.card h3{text-align:center;font-size:30px;margin:18px 0 8px}
+.price{text-align:center;font-size:24px;font-weight:bold;margin:0 0 18px}
+label{font-weight:bold;display:block;margin-bottom:6px}
+select,input,textarea{width:100%;padding:12px;margin-bottom:15px;border-radius:10px;border:1px solid #ccc;font-size:16px;background:#fff}
+button{width:100%;padding:14px;border:none;border-radius:12px;background:black;color:white;font-weight:bold;font-size:17px;cursor:pointer}
+button:hover{opacity:.9}
+.cart-section,.form{padding:45px 20px}
+.cart-panel{max-width:1000px;margin:auto;background:#15181f;border:1px solid #30343c;border-radius:20px;padding:25px}
+.cart-item{padding:14px 0;border-bottom:1px solid #333;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.cart-item:last-child{border-bottom:none}
+.remove-btn{width:auto;padding:8px 12px;font-size:13px;background:#fff;color:#111}
+.empty-cart{text-align:center;color:#ccc;font-size:18px;padding:25px}
+.hidden{display:none}
+.form-box{max-width:900px;margin:auto;background:white;color:black;padding:28px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,.2)}
+.radio-box{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.radio-box label{border:1px solid #ccc;border-radius:12px;padding:14px;display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:normal}
+.radio-box input{width:auto;margin:0}
+.checks label{display:flex;gap:10px;margin-bottom:15px;font-size:15px;font-weight:normal}
+.checks input{width:auto}
+.drawer{position:fixed;top:0;right:-430px;width:420px;max-width:92vw;height:100vh;background:#101217;z-index:500;box-shadow:-10px 0 30px rgba(0,0,0,.45);transition:.25s;display:flex;flex-direction:column;border-left:1px solid #333}
+.drawer.open{right:0}
+.drawer-header{padding:18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333}
+.drawer-body{padding:18px;overflow:auto;flex:1}
+.drawer-footer{padding:18px;border-top:1px solid #333}
+.close-btn{width:auto;background:#fff;color:#111;padding:8px 12px}
+.footer{background:#050505;color:#bbb;padding:35px 20px;text-align:center;font-size:14px}
+@media(max-width:800px){
+.topbar-inner{grid-template-columns:1fr;text-align:center}
+.nav-left{justify-content:center;flex-wrap:wrap}
+.shop-actions{justify-content:center}
+.logo-wrap img{width:180px}
+.hero{padding:45px 16px}
+.hero-logo{width:260px}
+.hero h2{font-size:38px}
+.hero p{font-size:18px}
+.section-title{font-size:34px}
+.radio-box{grid-template-columns:1fr}
+.cart-item{display:block}
+.remove-btn{margin-top:10px}
 }
 </style>
 </head>
-
 <body>
 
-<header>
+<header class="topbar">
+<div class="topbar-inner">
+<nav class="nav-left">
+<a href="#produkte">🛍️ Produkte</a>
+<a href="#info">ℹ️ Info</a>
+<a href="#kontakt">📞 Kontakt</a>
+</nav>
+<div class="logo-wrap">
 <img src="logo.jpg" alt="MTB Althofen Logo">
-<div>
-<h2>MTB ALTHOFEN</h2>
-<p>Vereinskleidung bestellen</p>
+<h1>MTB ALTHOFEN</h1>
+<p>Offizieller Vereinskleidung-Shop</p>
+</div>
+<div class="shop-actions">
+<button class="icon-btn" onclick="document.getElementById('produkte').scrollIntoView({behavior:'smooth'})">🔎 Shop</button>
+<button class="icon-btn cart-btn" onclick="openCart()">🛒 Warenkorb <span class="cart-count" id="cartCount">0</span></button>
+</div>
 </div>
 </header>
 
 <section class="hero">
-<h1>VEREINSKLEIDUNG BESTELLEN</h1>
-<p>Produkte auswählen → Warenkorb prüfen → Bestellung absenden</p>
+<img class="hero-logo" src="logo.jpg" alt="MTB Althofen Logo groß">
+<h2>Vereinskleidung bestellen</h2>
+<p>Wähle deine MTB Althofen Vereinskleidung aus, prüfe deinen Warenkorb und sende deine Bestellung direkt online ab.</p>
+<div class="hero-buttons">
+<button class="btn-accent" onclick="document.getElementById('produkte').scrollIntoView({behavior:'smooth'})">Jetzt Produkte ansehen</button>
+<button class="btn-dark" onclick="openCart()">Warenkorb öffnen</button>
+</div>
 </section>
 
-<section class="steps">
-<div class="step"><b>1. Produkte wählen</b><br>Farbe, Größe und Stückzahl auswählen.</div>
-<div class="step"><b>2. Warenkorb prüfen</b><br>Kontrolliere deine Bestellung vor dem Absenden.</div>
-<div class="step"><b>3. Bestellung absenden</b><br>Wir melden uns, sobald die Kleidung angekommen ist.</div>
+<section class="trust-row" id="info">
+<div class="trust-card"><span>🚴</span><b>MTB Althofen</b><br>Vereinskleidung für Mitglieder</div>
+<div class="trust-card"><span>📦</span><b>Sammelbestellung</b><br>Bestellungen werden gemeinsam aufgegeben</div>
+<div class="trust-card"><span>📲</span><b>Benachrichtigung</b><br>Du wirst kontaktiert, sobald alles da ist</div>
+<div class="trust-card"><span>🛒</span><b>Einfach bestellen</b><br>Produkte, Größe und Übergabe auswählen</div>
 </section>
 
 <div class="notice">
@@ -247,243 +123,176 @@ grid-template-columns:1fr;
 Die Bestellungen werden gesammelt und anschließend gemeinsam aufgegeben. Deshalb kann die Bearbeitung und Lieferung etwas dauern. Sobald deine Vereinskleidung angekommen ist, wirst du von uns kontaktiert.
 </div>
 
-<section class="products">
+<section class="products-section" id="produkte">
+<h2 class="section-title">Produkte</h2>
+<div class="products">
 
 <div class="card">
+<div class="badge">MTB Shirt</div>
 <img src="tshirt.jpg" alt="T-Shirt">
-
 <h3>T-Shirt</h3>
 <p class="price">20 €</p>
-
 <label>Farbe</label>
-<select id="shirtColor">
-<option>Schwarz</option>
-<option>Weiß</option>
-</select>
-
+<select id="shirtColor"><option>Schwarz</option><option>Weiß</option></select>
 <label>Größe</label>
 <select id="shirtSize">
-<option>98</option><option>104</option><option>110</option><option>116</option>
-<option>122</option><option>128</option><option>134</option><option>140</option>
-<option>146</option><option>152</option><option>158</option><option>164</option>
-<option>XS</option><option>S</option><option>M</option><option>L</option>
-<option>XL</option><option>XXL</option>
+<option>98</option><option>104</option><option>110</option><option>116</option><option>122</option><option>128</option><option>134</option><option>140</option><option>146</option><option>152</option><option>158</option><option>164</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
 </select>
-
 <label>Stückzahl</label>
-<select id="shirtQty">
-<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-</select>
-
-<button onclick="addShirt()">In den Warenkorb</button>
+<select id="shirtQty"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<button onclick="addShirt()">🛒 In den Warenkorb</button>
 </div>
 
 <div class="card">
+<div class="badge">Hoodie</div>
 <img src="hoodie.jpg" alt="Hoodie">
-
 <h3>Hoodie</h3>
 <p class="price">40 €</p>
-
 <label>Farbe</label>
-<select id="hoodieColor">
-<option>Schwarz</option>
-<option>Weiß</option>
-</select>
-
+<select id="hoodieColor"><option>Schwarz</option><option>Weiß</option></select>
 <label>Größe</label>
 <select id="hoodieSize">
-<option>98</option><option>104</option><option>110</option><option>116</option>
-<option>122</option><option>128</option><option>134</option><option>140</option>
-<option>146</option><option>152</option><option>158</option><option>164</option>
-<option>XS</option><option>S</option><option>M</option><option>L</option>
-<option>XL</option><option>XXL</option>
+<option>98</option><option>104</option><option>110</option><option>116</option><option>122</option><option>128</option><option>134</option><option>140</option><option>146</option><option>152</option><option>158</option><option>164</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
 </select>
-
 <label>Stückzahl</label>
-<select id="hoodieQty">
-<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-</select>
-
-<button onclick="addHoodie()">In den Warenkorb</button>
+<select id="hoodieQty"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<button onclick="addHoodie()">🛒 In den Warenkorb</button>
 </div>
 
 <div class="card">
+<div class="badge">Cap</div>
 <img src="cap.jpg" alt="Cap Schwarz">
-
 <h3>Cap Schwarz</h3>
 <p class="price">15 €</p>
-
 <label>Stückzahl</label>
-<select id="capQty">
-<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-</select>
-
-<button onclick="addCap()">In den Warenkorb</button>
+<select id="capQty"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+<button onclick="addCap()">🛒 In den Warenkorb</button>
 </div>
 
+</div>
 </section>
 
-<section class="cart">
-
-<h2 style="text-align:center;">Warenkorb</h2>
-
-<div id="cart"></div>
-
+<section class="cart-section" id="warenkorb">
+<div class="cart-panel">
+<h2 style="text-align:center;">🛒 Warenkorb</h2>
+<div id="cart" class="empty-cart">Dein Warenkorb ist noch leer.</div>
 <h3 id="total">Gesamt: 0 €</h3>
-
-<button onclick="showForm()">Weiter zum Formular</button>
-
+<button class="btn-accent" onclick="showForm()">Weiter zur Bestellung</button>
+</div>
 </section>
 
 <section class="form hidden" id="form">
-
 <div class="form-box">
-
 <h2>Bestelldaten</h2>
-
 <form action="https://api.web3forms.com/submit" method="POST">
-
 <input type="hidden" name="access_key" value="9ed788ac-8ae7-47f6-8f7d-23fdbe53174f">
 <input type="hidden" name="subject" value="Neue Vereinskleidung-Bestellung MTB Althofen">
 <input type="hidden" id="order" name="Bestellung">
 <input type="hidden" id="totalOrder" name="Gesamtbetrag">
-
 <label>Name</label>
 <input type="text" name="Name" placeholder="Vor- und Nachname" required>
-
 <label>Adresse</label>
 <input type="text" name="Adresse" placeholder="Straße, Hausnummer, PLZ, Ort" required>
-
 <label>Telefonnummer</label>
 <input type="tel" name="Telefon" placeholder="Telefonnummer" required>
-
 <label>E-Mail</label>
 <input type="email" name="Email" placeholder="E-Mail" required>
-
 <label>Übergabe der Bestellung</label>
 <div class="radio-box">
-<label><input type="radio" name="Übergabe" value="Selbstabholung" required> Selbstabholung</label>
-<label><input type="radio" name="Übergabe" value="Zusendung" required> Zusendung</label>
+<label><input type="radio" name="Übergabe" value="Selbstabholung" required> 🏠 Selbstabholung</label>
+<label><input type="radio" name="Übergabe" value="Zusendung" required> 📦 Zusendung</label>
 </div>
-
 <textarea name="Anmerkung" placeholder="Anmerkungen, Wünsche oder Hinweise"></textarea>
-
 <div class="notice" style="margin:20px 0;">
 <b>Info:</b> Du wirst kontaktiert, sobald die Bestellung angekommen ist. Die Übergabe erfolgt je nach Auswahl per Selbstabholung oder Zusendung.
 </div>
-
 <div class="checks">
-
-<label>
-<input type="checkbox" required>
-<span>Ich akzeptiere die Verarbeitung meiner Daten zur Bearbeitung der Bestellung.</span>
-</label>
-
-<label>
-<input type="checkbox" required>
-<span>Ich bestätige, dass die Bestellung verbindlich ist.</span>
-</label>
-
-<label>
-<input type="checkbox" required>
-<span>Ich habe die Größen, Farben und Stückzahlen überprüft.</span>
-</label>
-
-<label>
-<input type="checkbox" required>
-<span>Mir ist bewusst, dass es sich um eine Sammelbestellung handelt und die Lieferung etwas dauern kann.</span>
-</label>
-
+<label><input type="checkbox" required><span>Ich akzeptiere die Verarbeitung meiner Daten zur Bearbeitung der Bestellung.</span></label>
+<label><input type="checkbox" required><span>Ich bestätige, dass die Bestellung verbindlich ist.</span></label>
+<label><input type="checkbox" required><span>Ich habe die Größen, Farben und Stückzahlen überprüft.</span></label>
+<label><input type="checkbox" required><span>Mir ist bewusst, dass es sich um eine Sammelbestellung handelt und die Lieferung etwas dauern kann.</span></label>
 </div>
-
-<button type="submit" onclick="prepare()">Bestellung absenden</button>
-
+<button type="submit" onclick="prepare()">✅ Bestellung absenden</button>
 </form>
-
 </div>
-
 </section>
 
-<footer class="footer">
-MTB Althofen – Vereinskleidung<br>
-Bei Fragen zur Bestellung bitte an den Vereinsverantwortlichen wenden.
+<div class="drawer" id="cartDrawer">
+<div class="drawer-header">
+<h2>🛒 Warenkorb</h2>
+<button class="close-btn" onclick="closeCart()">Schließen</button>
+</div>
+<div class="drawer-body">
+<div id="drawerCart" class="empty-cart">Dein Warenkorb ist noch leer.</div>
+</div>
+<div class="drawer-footer">
+<h3 id="drawerTotal">Gesamt: 0 €</h3>
+<button class="btn-accent" onclick="closeCart(); showForm();">Zur Bestellung</button>
+</div>
+</div>
+
+<footer class="footer" id="kontakt">
+<b>MTB Althofen – Vereinskleidung</b><br>
+Bei Fragen zur Bestellung bitte an den Vereinsverantwortlichen wenden.<br><br>
+⚠️ Preise und Produkte vorbehaltlich Verfügbarkeit.
 </footer>
 
 <script>
-
 let items=[];
 
 function addShirt(){
-
 let color=document.getElementById('shirtColor').value;
 let size=document.getElementById('shirtSize').value;
-let qty=document.getElementById('shirtQty').value;
-
-items.push({
-name:'T-Shirt '+color,
-size,
-qty,
-price:20
-});
-
+let qty=Number(document.getElementById('shirtQty').value);
+items.push({name:'T-Shirt '+color,size,qty,price:20});
 render();
-
+openCart();
 }
 
 function addHoodie(){
-
 let color=document.getElementById('hoodieColor').value;
 let size=document.getElementById('hoodieSize').value;
-let qty=document.getElementById('hoodieQty').value;
-
-items.push({
-name:'Hoodie '+color,
-size,
-qty,
-price:35
-});
-
+let qty=Number(document.getElementById('hoodieQty').value);
+items.push({name:'Hoodie '+color,size,qty,price:40});
 render();
-
+openCart();
 }
 
 function addCap(){
-
-let qty=document.getElementById('capQty').value;
-
-items.push({
-name:'Cap Schwarz',
-size:'Einheitsgröße',
-qty,
-price:15
-});
-
+let qty=Number(document.getElementById('capQty').value);
+items.push({name:'Cap Schwarz',size:'Einheitsgröße',qty,price:15});
 render();
-
+openCart();
 }
 
 function render(){
-
-let c=document.getElementById('cart');
+let cart=document.getElementById('cart');
+let drawerCart=document.getElementById('drawerCart');
 let total=0;
-c.innerHTML='';
+let count=0;
+let html='';
 
 items.forEach((i,index)=>{
-
-total+=i.price*i.qty;
-
-c.innerHTML+=`
+let itemTotal=i.price*i.qty;
+total+=itemTotal;
+count+=i.qty;
+html+=`
 <div class='cart-item'>
+<div>
 <b>${i.name}</b><br>
-Größe: ${i.size} | Stück: ${i.qty} | Preis: ${i.price * i.qty} €
-<br><button style="margin-top:8px;max-width:160px;padding:8px;font-size:14px;" onclick="removeItem(${index})">Entfernen</button>
+Größe: ${i.size}<br>
+Stück: ${i.qty} | Preis: ${itemTotal} €
 </div>
-`;
-
+<button class="remove-btn" onclick="removeItem(${index})">Entfernen</button>
+</div>`;
 });
 
+if(items.length===0){html='<div class="empty-cart">Dein Warenkorb ist noch leer.</div>';}
+cart.innerHTML=html;
+drawerCart.innerHTML=html;
 document.getElementById('total').innerText='Gesamt: '+total+' €';
-
+document.getElementById('drawerTotal').innerText='Gesamt: '+total+' €';
+document.getElementById('cartCount').innerText=count;
 }
 
 function removeItem(index){
@@ -491,41 +300,36 @@ items.splice(index,1);
 render();
 }
 
-function showForm(){
+function openCart(){
+document.getElementById('cartDrawer').classList.add('open');
+}
 
+function closeCart(){
+document.getElementById('cartDrawer').classList.remove('open');
+}
+
+function showForm(){
 if(items.length===0){
 alert('Bitte zuerst Produkte auswählen');
 return;
 }
-
 document.getElementById('form').classList.remove('hidden');
-window.scrollTo(0,document.body.scrollHeight);
-
+document.getElementById('form').scrollIntoView({behavior:'smooth'});
 }
 
 function prepare(){
-
-let text = "";
-let total = 0;
-
-items.forEach(i => {
-
-let sum = i.price * i.qty;
-total += sum;
-
-text +=
-"Produkt: " + i.name + "\n" +
-"Größe: " + i.size + "\n" +
-"Stückzahl: " + i.qty + "\n" +
-"Preis: " + sum + " €\n\n";
-
+let text="";
+let total=0;
+items.forEach(i=>{
+let sum=i.price*i.qty;
+total+=sum;
+text+="Produkt: "+i.name+"\n"+"Größe: "+i.size+"\n"+"Stückzahl: "+i.qty+"\n"+"Preis: "+sum+" €\n\n";
 });
-
-document.getElementById('order').value = text;
-document.getElementById('totalOrder').value = total + " €";
-
+document.getElementById('order').value=text;
+document.getElementById('totalOrder').value=total+" €";
 }
 
+render();
 </script>
 
 </body>
