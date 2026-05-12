@@ -21,7 +21,6 @@ a{color:inherit;text-decoration:none}
 .cart-btn{position:relative;background:var(--accent);color:#111;border:none}
 .cart-count{position:absolute;top:-8px;right:-8px;background:#e60023;color:#fff;border-radius:999px;font-size:12px;min-width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:bold}
 .hero{padding:70px 20px;text-align:center;background:radial-gradient(circle at 50% 15%,rgba(255,255,255,.18),transparent 22%),linear-gradient(135deg,#111,#24272e 55%,#070707)}
-.hero-logo{width:340px;max-width:80vw;border-radius:38px;margin:0 auto 25px;box-shadow:0 20px 45px rgba(0,0,0,.55)}
 .hero h2{font-size:56px;margin:0;text-transform:uppercase;letter-spacing:2px}
 .hero p{font-size:21px;color:#ddd;max-width:720px;margin:15px auto 0;line-height:1.5}
 .hero-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
@@ -34,6 +33,16 @@ a{color:inherit;text-decoration:none}
 .notice{background:#fff3cd;color:#222;padding:18px;margin:25px auto;max-width:1100px;border-radius:16px;font-size:17px;line-height:1.5;box-shadow:0 8px 22px rgba(0,0,0,.15)}
 .section-title{text-align:center;font-size:42px;margin:0 0 25px;color:#111}
 .products-section{background:#f4f4f4;padding:45px 20px}
+
+/* Damit beim Klick auf Produkte/Shop nichts unter dem großen Header verschwindet */
+#produkte{
+scroll-margin-top:360px;
+}
+
+#info,#kontakt,#warenkorb,#form{
+scroll-margin-top:360px;
+}
+
 .products{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
 .card{background:white;color:black;border-radius:20px;padding:18px;box-shadow:0 10px 25px rgba(0,0,0,.2);position:relative;overflow:hidden}
 .badge{position:absolute;top:14px;left:14px;background:#000;color:#fff;padding:7px 11px;border-radius:999px;font-size:13px;font-weight:bold}
@@ -68,15 +77,15 @@ button:hover{opacity:.9}
 .topbar-inner{grid-template-columns:1fr;text-align:center}
 .nav-left{justify-content:center;flex-wrap:wrap}
 .shop-actions{justify-content:center}
-.logo-wrap img{width:180px}
+.logo-wrap img{width:190px;max-width:75vw}
 .hero{padding:45px 16px}
-.hero-logo{width:260px}
 .hero h2{font-size:38px}
 .hero p{font-size:18px}
 .section-title{font-size:34px}
 .radio-box{grid-template-columns:1fr}
 .cart-item{display:block}
 .remove-btn{margin-top:10px}
+#produkte,#info,#kontakt,#warenkorb,#form{scroll-margin-top:330px}
 }
 </style>
 </head>
@@ -95,7 +104,7 @@ button:hover{opacity:.9}
 <p>Offizieller Vereinskleidung-Shop</p>
 </div>
 <div class="shop-actions">
-<button class="icon-btn" onclick="document.getElementById('produkte').scrollIntoView({behavior:'smooth'})">🔎 Shop</button>
+<button class="icon-btn" onclick="scrollToSection('produkte')">🔎 Shop</button>
 <button class="icon-btn cart-btn" onclick="openCart()">🛒 Warenkorb <span class="cart-count" id="cartCount">0</span></button>
 </div>
 </div>
@@ -105,7 +114,7 @@ button:hover{opacity:.9}
 <h2>Vereinskleidung bestellen</h2>
 <p>Wähle deine MTB Althofen Vereinskleidung aus, prüfe deinen Warenkorb und sende deine Bestellung direkt online ab.</p>
 <div class="hero-buttons">
-<button class="btn-accent" onclick="document.getElementById('produkte').scrollIntoView({behavior:'smooth'})">Jetzt Produkte ansehen</button>
+<button class="btn-accent" onclick="scrollToSection('produkte')">Jetzt Produkte ansehen</button>
 <button class="btn-dark" onclick="openCart()">Warenkorb öffnen</button>
 </div>
 </section>
@@ -238,6 +247,10 @@ Bei Fragen zur Bestellung bitte an den Vereinsverantwortlichen wenden.<br><br>
 
 <script>
 let items=[];
+
+function scrollToSection(id){
+document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+}
 
 function addShirt(){
 let color=document.getElementById('shirtColor').value;
