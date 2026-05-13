@@ -5,32 +5,405 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bestellung abschließen – MTB Althofen</title>
 <style>
-:root{--bg:#0b0d10;--accent:#f4c430}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#0b0d10;color:white}.topbar{background:#050505;border-bottom:1px solid #222;padding:18px;text-align:center}.topbar img{width:180px;max-width:70vw;border-radius:24px}.topbar h1{margin:10px 0 0;letter-spacing:2px}.container{max-width:1000px;margin:0 auto;padding:35px 18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.box{background:#fff;color:#111;border-radius:18px;padding:24px;box-shadow:0 10px 25px rgba(0,0,0,.25)}.dark-box{background:#15181f;color:#fff;border:1px solid #30343c}h2{margin-top:0}.cart-item{padding:12px 0;border-bottom:1px solid #ddd}.dark-box .cart-item{border-bottom:1px solid #333}.notice{background:#fff3cd;color:#222;padding:16px;border-radius:14px;line-height:1.5;margin-bottom:18px}.paybox{background:#dff3ff;color:#111;padding:18px;border-radius:14px;line-height:1.6;margin:18px 0}.payline{background:#fff;border:1px dashed #444;border-radius:10px;padding:10px;margin:8px 0;font-weight:bold;word-break:break-word}label{font-weight:bold;display:block;margin-bottom:6px}input,textarea{width:100%;padding:11px;margin-bottom:14px;border-radius:9px;border:1px solid #ccc;font-size:15px}textarea{min-height:90px}.radio-box{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}.radio-box label{border:1px solid #ccc;border-radius:12px;padding:13px;display:flex;gap:8px;align-items:center;font-weight:normal}.radio-box input,.checks input{width:auto;margin:0}.checks label{display:flex;gap:10px;margin-bottom:14px;font-size:15px;font-weight:normal}button,.btn{display:inline-block;text-align:center;width:100%;padding:13px;border:none;border-radius:12px;background:#000;color:#fff;font-weight:bold;font-size:17px;cursor:pointer;text-decoration:none}.btn-accent{background:var(--accent);color:#111}.footer{text-align:center;color:#bbb;padding:30px}@media(max-width:800px){.grid{grid-template-columns:1fr}.radio-box{grid-template-columns:1fr}}
+:root{--bg:#0b0d10;--accent:#f4c430}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#0b0d10;color:white}
+.topbar{background:#050505;border-bottom:1px solid #222;padding:18px;text-align:center}
+.topbar img{width:180px;max-width:70vw;border-radius:24px}
+.topbar h1{margin:10px 0 0;letter-spacing:2px}
+.container{max-width:1000px;margin:0 auto;padding:35px 18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.box{background:#fff;color:#111;border-radius:18px;padding:24px;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+.dark-box{background:#15181f;color:#fff;border:1px solid #30343c}
+h2{margin-top:0}
+.cart-item{padding:12px 0;border-bottom:1px solid #ddd}
+.dark-box .cart-item{border-bottom:1px solid #333}
+.notice{background:#fff3cd;color:#222;padding:16px;border-radius:14px;line-height:1.5;margin-bottom:18px}
+.paybox{background:#dff3ff;color:#111;padding:18px;border-radius:14px;line-height:1.6;margin:18px 0}
+.payline{background:#fff;border:1px dashed #444;border-radius:10px;padding:10px;margin:8px 0;font-weight:bold;word-break:break-word}
+label{font-weight:bold;display:block;margin-bottom:6px}
+input,textarea{
+width:100%;
+padding:11px;
+margin-bottom:14px;
+border-radius:9px;
+border:1px solid #ccc;
+font-size:15px
+}
+textarea{min-height:90px}
+.radio-box{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-bottom:18px
+}
+.radio-box label{
+border:1px solid #ccc;
+border-radius:12px;
+padding:13px;
+display:flex;
+gap:8px;
+align-items:center;
+font-weight:normal
+}
+.radio-box input,.checks input{
+width:auto;
+margin:0
+}
+.checks label{
+display:flex;
+gap:10px;
+margin-bottom:14px;
+font-size:15px;
+font-weight:normal
+}
+button,.btn{
+display:inline-block;
+text-align:center;
+width:100%;
+padding:13px;
+border:none;
+border-radius:12px;
+background:#000;
+color:#fff;
+font-weight:bold;
+font-size:17px;
+cursor:pointer;
+text-decoration:none
+}
+.btn-accent{
+background:var(--accent);
+color:#111
+}
+.footer{
+text-align:center;
+color:#bbb;
+padding:30px
+}
+@media(max-width:800px){
+.grid{grid-template-columns:1fr}
+.radio-box{grid-template-columns:1fr}
+}
 </style>
 </head>
+
 <body>
-<header class="topbar"><img src="logo.jpg" alt="MTB Althofen Logo"><h1>BESTELLUNG ABSCHLIESSEN</h1><p>Bitte Daten prüfen, Zahlungshinweis beachten und Bestellung absenden.</p></header>
+
+<header class="topbar">
+<img src="logo.jpg" alt="MTB Althofen Logo">
+<h1>BESTELLUNG ABSCHLIESSEN</h1>
+<p>Bitte Daten prüfen, Zahlungshinweis beachten und Bestellung absenden.</p>
+</header>
+
 <main class="container">
-<div class="notice"><b>Wichtig:</b> Deine Bestellung wird erst nach Zahlungseingang für die Sammelbestellung berücksichtigt. Bitte verwende als Verwendungszweck deinen Namen und „Vereinskleidung“.</div>
-<div class="grid"><section class="box dark-box"><h2>🛒 Deine Bestellung</h2><div id="cartSummary">Warenkorb wird geladen...</div><h3 id="total">Gesamt: 0 €</h3><a class="btn btn-accent" href="index.html">Zurück zum Shop</a></section>
-<section class="box"><h2>💳 Zahlungsdaten</h2><div class="paybox"><b>Bitte überweisen:</b><div class="payline">Empfänger: MTB Althofen</div><div class="payline">IBAN: AT29 3950 1000 0007 1860</div><div class="payline">Verwendungszweck: <span id="paymentReference">Name + Vereinskleidung</span></div><div class="payline">Betrag: <span id="paymentAmount">0 €</span></div><p>Nach Zahlungseingang wird deine Bestellung für die Sammelbestellung vorgemerkt. Du wirst kontaktiert, sobald die Kleidung angekommen ist.</p></div></section></div>
-<section class="box" style="margin-top:22px;"><h2>Bestelldaten</h2><form action="https://api.web3forms.com/submit" method="POST" onsubmit="return prepareOrder()"><input type="hidden" name="access_key" value="c6169c9c-e647-4581-ae02-0dda592d0e88"><input type="hidden" id="subjectField" name="subject" value="Neue Bestellung"><input type="hidden" id="redirectField" name="redirect" value=""><input type="hidden" id="order" name="Bestellung"><input type="hidden" id="totalOrder" name="Gesamtbetrag"><input type="hidden" name="Zahlungsstatus" value="OFFEN - bitte Zahlungseingang manuell prüfen"><input type="hidden" id="paymentRefField" name="Verwendungszweck"><label>Name</label><input type="text" id="customerName" name="Name" placeholder="Vor- und Nachname" required oninput="updatePaymentReference()"><label>Adresse</label><input type="text" name="Adresse" placeholder="Straße, Hausnummer, PLZ, Ort" required><label>Telefonnummer</label><input type="tel" name="Telefon" placeholder="Telefonnummer" required><label>E-Mail</label><input type="email" name="Email" placeholder="E-Mail" required><label>Übergabe der Bestellung</label><div class="radio-box"><label><input type="radio" name="Übergabe" value="Selbstabholung" required> 🏠 Selbstabholung</label><label><input type="radio" name="Übergabe" value="Zusendung" required> 📦 Zusendung</label></div><textarea name="Anmerkung" placeholder="Anmerkungen, Wünsche oder Hinweise"></textarea><div class="checks"><label><input type="checkbox" required><span>Ich akzeptiere die Verarbeitung meiner Daten zur Bearbeitung der Bestellung.</span></label><label><input type="checkbox" required><span>Ich bestätige, dass die Bestellung verbindlich ist.</span></label><label><input type="checkbox" required><span>Ich habe die Größen, Farben und Stückzahlen überprüft.</span></label><label><input type="checkbox" required><span>Mir ist bewusst, dass die Bestellung erst nach Zahlungseingang berücksichtigt wird.</span></label><label><input type="checkbox" required><span>Mir ist bewusst, dass es sich um eine Sammelbestellung handelt und die Lieferung etwas dauern kann.</span></label></div><button type="submit">✅ Bestellung absenden</button></form></section>
-</main><footer class="footer">MTB Althofen – Vereinskleidung<br>Bei Fragen zur Bestellung bitte an den Vereinsverantwortlichen wenden.</footer>
+
+<div class="notice">
+<b>Wichtig:</b>
+Deine Bestellung wird erst nach Zahlungseingang für die Sammelbestellung berücksichtigt.
+Bitte verwende als Verwendungszweck deinen Namen und „Vereinskleidung“.
+</div>
+
+<div class="grid">
+
+<section class="box dark-box">
+<h2>🛒 Deine Bestellung</h2>
+
+<div id="cartSummary">
+Warenkorb wird geladen...
+</div>
+
+<h3 id="total">Gesamt: 0 €</h3>
+
+<a class="btn btn-accent" href="index.html">
+Zurück zum Shop
+</a>
+
+</section>
+
+<section class="box">
+
+<h2>💳 Zahlungsdaten</h2>
+
+<div class="paybox">
+
+<b>Bitte überweisen:</b>
+
+<div class="payline">
+Empfänger: MTB Althofen
+</div>
+
+<div class="payline">
+IBAN: AT29 3950 1000 0007 1860
+</div>
+
+<div class="payline">
+Verwendungszweck:
+<span id="paymentReference">
+Name + Vereinskleidung
+</span>
+</div>
+
+<div class="payline">
+Betrag:
+<span id="paymentAmount">
+0 €
+</span>
+</div>
+
+<p>
+Nach Zahlungseingang wird deine Bestellung für die Sammelbestellung vorgemerkt.
+Du wirst kontaktiert, sobald die Kleidung angekommen ist.
+</p>
+
+</div>
+
+</section>
+</div>
+
+<section class="box" style="margin-top:22px;">
+
+<h2>Bestelldaten</h2>
+
+<form action="https://api.web3forms.com/submit" method="POST" onsubmit="return prepareOrder()">
+
+<input type="hidden" name="access_key" value="c6169c9c-e647-4581-ae02-0dda592d0e88">
+
+<input type="hidden" id="subjectField" name="subject" value="Neue Bestellung">
+
+<input type="hidden" name="from_name" id="fromNameField" value="Bestellung">
+
+<input type="hidden" id="redirectField" name="redirect" value="">
+
+<input type="hidden" id="order" name="Bestellung">
+
+<input type="hidden" id="totalOrder" name="Gesamtbetrag">
+
+<input type="hidden" name="Zahlungsstatus" value="OFFEN - bitte Zahlungseingang manuell prüfen">
+
+<input type="hidden" id="paymentRefField" name="Verwendungszweck">
+
+<label>Name</label>
+
+<input type="text"
+id="customerName"
+name="Name"
+placeholder="Vor- und Nachname"
+required
+oninput="updatePaymentReference()">
+
+<label>Adresse</label>
+
+<input type="text"
+name="Adresse"
+placeholder="Straße, Hausnummer, PLZ, Ort"
+required>
+
+<label>Telefonnummer</label>
+
+<input type="tel"
+name="Telefon"
+placeholder="Telefonnummer"
+required>
+
+<label>E-Mail</label>
+
+<input type="email"
+name="Email"
+placeholder="E-Mail"
+required>
+
+<label>Übergabe der Bestellung</label>
+
+<div class="radio-box">
+
+<label>
+<input type="radio" name="Übergabe" value="Selbstabholung" required>
+🏠 Selbstabholung
+</label>
+
+<label>
+<input type="radio" name="Übergabe" value="Zusendung" required>
+📦 Zusendung
+</label>
+
+</div>
+
+<textarea name="Anmerkung"
+placeholder="Anmerkungen, Wünsche oder Hinweise"></textarea>
+
+<div class="checks">
+
+<label>
+<input type="checkbox" required>
+<span>Ich akzeptiere die Verarbeitung meiner Daten zur Bearbeitung der Bestellung.</span>
+</label>
+
+<label>
+<input type="checkbox" required>
+<span>Ich bestätige, dass die Bestellung verbindlich ist.</span>
+</label>
+
+<label>
+<input type="checkbox" required>
+<span>Ich habe die Größen, Farben und Stückzahlen überprüft.</span>
+</label>
+
+<label>
+<input type="checkbox" required>
+<span>Mir ist bewusst, dass die Bestellung erst nach Zahlungseingang berücksichtigt wird.</span>
+</label>
+
+<label>
+<input type="checkbox" required>
+<span>Mir ist bewusst, dass es sich um eine Sammelbestellung handelt und die Lieferung etwas dauern kann.</span>
+</label>
+
+</div>
+
+<button type="submit">
+✅ Bestellung absenden
+</button>
+
+</form>
+
+</section>
+
+</main>
+
+<footer class="footer">
+MTB Althofen – Vereinskleidung<br>
+Bei Fragen zur Bestellung bitte an den Vereinsverantwortlichen wenden.
+</footer>
+
 <script>
-let items=JSON.parse(localStorage.getItem('mtbCart')||'[]');
-let currentTotal=0;
-function renderSummary(){let box=document.getElementById('cartSummary');let total=0;let html='';if(items.length===0){box.innerHTML='Dein Warenkorb ist leer. Bitte gehe zurück zum Shop.';return;}items.forEach(i=>{let sum=i.price*i.qty;total+=sum;html+=`<div class="cart-item"><b>${i.name}</b><br>Größe: ${i.size}<br>Stückzahl: ${i.qty}<br>Preis: ${sum} €</div>`;});currentTotal=total;box.innerHTML=html;document.getElementById('total').innerText='Gesamt: '+total+' €';document.getElementById('paymentAmount').innerText=total+' €';}
-function updatePaymentReference(){let name=document.getElementById('customerName').value.trim();let ref=name?name+' Vereinskleidung':'Name + Vereinskleidung';document.getElementById('paymentReference').innerText=ref;document.getElementById('paymentRefField').value=ref;}
-function prepareOrder(){if(items.length===0){alert('Der Warenkorb ist leer.');return false;}let text='';let total=0;items.forEach(i=>{let sum=i.price*i.qty;total+=sum;text+='Produkt: '+i.name+'\n'+'Größe: '+i.size+'\n'+'Stückzahl: '+i.qty+'\n'+'Preis: '+sum+' €\n\n';});document.getElementById('order').value=text;document.getElementById('totalOrder').value=total+' €';updatePaymentReference();
-let name=document.getElementById('customerName').value.trim();
-let paymentRef=document.getElementById('paymentRefField').value;
+
+let items = JSON.parse(localStorage.getItem('mtbCart') || '[]');
+
+function renderSummary(){
+
+let box = document.getElementById('cartSummary');
+
+let total = 0;
+let html = '';
+
+if(items.length === 0){
+
+box.innerHTML = 'Dein Warenkorb ist leer. Bitte gehe zurück zum Shop.';
+return;
+
+}
+
+items.forEach(i => {
+
+let sum = i.price * i.qty;
+
+total += sum;
+
+html += `
+<div class="cart-item">
+<b>${i.name}</b><br>
+Größe: ${i.size}<br>
+Stückzahl: ${i.qty}<br>
+Preis: ${sum} €
+</div>
+`;
+
+});
+
+box.innerHTML = html;
+
+document.getElementById('total').innerText =
+'Gesamt: ' + total + ' €';
+
+document.getElementById('paymentAmount').innerText =
+total + ' €';
+
+}
+
+function updatePaymentReference(){
+
+let name = document.getElementById('customerName').value.trim();
+
+let ref = name
+? name + ' Vereinskleidung'
+: 'Name + Vereinskleidung';
+
+document.getElementById('paymentReference').innerText = ref;
+
+document.getElementById('paymentRefField').value = ref;
+
+}
+
+function prepareOrder(){
+
+if(items.length === 0){
+
+alert('Der Warenkorb ist leer.');
+return false;
+
+}
+
+let text = '';
+let total = 0;
+
+items.forEach(i => {
+
+let sum = i.price * i.qty;
+
+total += sum;
+
+text +=
+'Produkt: ' + i.name + '\\n' +
+'Größe: ' + i.size + '\\n' +
+'Stückzahl: ' + i.qty + '\\n' +
+'Preis: ' + sum + ' €\\n\\n';
+
+});
+
+document.getElementById('order').value = text;
+
+document.getElementById('totalOrder').value =
+total + ' €';
+
+updatePaymentReference();
+
+let name =
+document.getElementById('customerName').value.trim();
+
+let paymentRef =
+document.getElementById('paymentRefField').value;
+
 document.getElementById('subjectField').value =
 'Bestellung - ' + name;
-localStorage.setItem('mtbLastOrder',JSON.stringify({name:name,total:total,reference:paymentRef,items:items,iban:'AT29 3950 1000 0007 1860',receiver:'MTB Althofen'}));
-document.getElementById('redirectField').value=window.location.origin+window.location.pathname.replace('checkout.html','')+'zahlung.html';
-setTimeout(function(){localStorage.removeItem('mtbCart');},100);
-return true;}
-renderSummary();updatePaymentReference();
+
+document.getElementById('fromNameField').value =
+'Bestellung ' + name;
+
+localStorage.setItem('mtbLastOrder', JSON.stringify({
+name:name,
+total:total,
+reference:paymentRef,
+items:items,
+iban:'AT29 3950 1000 0007 1860',
+receiver:'MTB Althofen'
+}));
+
+document.getElementById('redirectField').value =
+window.location.origin +
+window.location.pathname.replace('checkout.html','') +
+'zahlung.html';
+
+localStorage.removeItem('mtbCart');
+
+return true;
+
+}
+
+renderSummary();
+
+updatePaymentReference();
+
 </script>
+
 </body>
 </html>
