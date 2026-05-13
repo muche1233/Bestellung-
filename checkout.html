@@ -25,21 +25,6 @@ function prepareOrder(){if(items.length===0){alert('Der Warenkorb ist leer.');re
 
 let name=document.getElementById('customerName').value.trim();
 let paymentRef=document.getElementById('paymentRefField').value;
-let autoresponder =
-'Danke für deine Bestellung bei MTB Althofen.\\n\\n' +
-'Deine Bestellung wurde übermittelt.\\n\\n' +
-'Bestellübersicht:\\n' + text +
-'Gesamtbetrag: ' + total + ' €\\n\\n' +
-'Wichtig:\\n' +
-'Die Bestellung wird erst nach Zahlungseingang für die Sammelbestellung berücksichtigt.\\n\\n' +
-'Bitte überweise den Betrag mit folgendem Verwendungszweck:\\n' +
-paymentRef + '\\n\\n' +
-'Empfänger: MTB Althofen\\n' +
-'IBAN: AT29 3950 1000 0007 1860\\n' +
-'Betrag: ' + total + ' €\\n\\n' +
-'Sobald die Vereinskleidung angekommen ist, wirst du von uns kontaktiert.\\n\\n' +
-'Sportliche Grüße\\n' +
-'MTB Althofen';
 
 document.getElementById('autoresponderField').value=autoresponder;
 
