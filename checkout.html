@@ -45,7 +45,7 @@ document.getElementById('autoresponderField').value=autoresponder;
 
 localStorage.setItem('mtbLastOrder',JSON.stringify({name:name,total:total,reference:paymentRef,items:items,iban:'AT29 3950 1000 0007 1860',receiver:'MTB Althofen'}));
 document.getElementById('redirectField').value=window.location.origin+window.location.pathname.replace('checkout.html','')+'zahlung.html';
-setTimeout(function(){localStorage.removeItem('mtbCart');
+setTimeout(function(){localStorage.removeItem('mtbCart');},100);
 return true;}
 renderSummary();updatePaymentReference();
 </script>
